@@ -55,7 +55,7 @@ export class FormItemHostComponent implements OnInit, FormItemComponent {
 ```
 
 こんな感じにngIf/ngSwitchを使わずに(比較的)安全に書ける
-```ts
+```html
 <app-form-item-host
   *ngFor="let formItem of formItems"
   [formItem]="formItem"
