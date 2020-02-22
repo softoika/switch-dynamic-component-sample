@@ -1,0 +1,2 @@
+# Dynamic Componentで安全にswitch caseする
+never型による網羅性チェックとDynamic Componentを使って安全にswitch caseするAngularのサンプルプロジェクト

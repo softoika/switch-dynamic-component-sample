@@ -1,0 +1,3 @@
+.option:not(:last-child) {
+  padding-right: 8px;
+}

@@ -1,0 +1,10 @@
+<label>{{ formItem.title }}</label
+><span *ngIf="formItem.required"> * </span>:
+<mat-radio-group [formControl]="selectedValue" [required]="formItem.required">
+  <mat-radio-button
+    *ngFor="let option of formItem.options"
+    [value]="option.value"
+    class="option"
+    >{{ option.label }}</mat-radio-button
+  >
+</mat-radio-group>

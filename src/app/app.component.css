@@ -1,0 +1,11 @@
+.form {
+  padding: 16px;
+}
+
+.form-item {
+  display: block;
+}
+
+.form-item:not(:last-child) {
+  padding-bottom: 16px;
+}

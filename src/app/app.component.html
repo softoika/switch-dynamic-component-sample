@@ -1,0 +1,8 @@
+<div class="form">
+  <app-form-item-host
+    *ngFor="let formItem of formItems"
+    [formItem]="formItem"
+    (valueChanges)="consoleLog($event)"
+    class="form-item"
+  ></app-form-item-host>
+</div>
