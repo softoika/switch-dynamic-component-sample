@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import { FormItemDirective } from '../form-item.directive';
 import { FormItemComponent, FormItem } from '../form-item';
-import { FormItemFactory } from 'src/app/form/form-item.factory';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { ComponentTypeResolver } from 'src/app/form/component-type.resolver';
 
 @Component({
   selector: 'app-form-item-host',
@@ -28,19 +28,18 @@ export class FormItemHostComponent
   private onDestroy = new Subject<void>();
 
   constructor(
-    private resolver: ComponentFactoryResolver,
-    private formItemFactory: FormItemFactory,
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private componentTypeResolver: ComponentTypeResolver,
   ) {}
 
   ngOnInit() {
-    const container = this.formItemFactory.createComponentContainer(
+    const componentType = this.componentTypeResolver.resolveComponentType(
       this.formItem.type,
     );
-    const componentFactory = this.resolver.resolveComponentFactory(
-      container.component,
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      componentType,
     );
     const viewContainerRef = this.directive.viewContainerRef;
-    viewContainerRef.clear();
     const component = viewContainerRef.createComponent(componentFactory)
       .instance;
     // Input
